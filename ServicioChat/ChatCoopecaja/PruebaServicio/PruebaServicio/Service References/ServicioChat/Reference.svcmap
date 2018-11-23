@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="923c63eb-b8ce-405c-92ae-f059e04ad830" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://cgonzalez7684-001-site2.smarterasp.net/chat/Service1.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="b945750d-6d5e-47f7-983e-c963873bc209" SourceId="1" SourceUrl="http://cgonzalez7684-001-site2.smarterasp.net/chat/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="6c8679a8-9332-499f-8cd6-4a1f7e5c25a2" SourceId="1" SourceUrl="http://cgonzalez7684-001-site2.smarterasp.net/chat/Service1.svc?disco" />
+    <MetadataFile FileName="WebChat.wsdl" MetadataType="Wsdl" ID="a8062d16-24f7-4123-aef7-7ced441d0507" SourceId="1" SourceUrl="http://cgonzalez7684-001-site2.smarterasp.net/chat/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="f7ba5f33-9e51-4e1e-a98e-d3aecdb999f7" SourceId="1" SourceUrl="http://cgonzalez7684-001-site2.smarterasp.net/chat/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="4f4d4d98-b407-4420-ac93-52b2d4675576" SourceId="1" SourceUrl="http://cgonzalez7684-001-site2.smarterasp.net/chat/Service1.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="chatModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bloqueos">
+          <Key>
+            <PropertyRef Name="direccionIp" />
+          </Key>
+          <Property Name="direccionIp" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nIntentos" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="nCategoriaChat" />
+          </Key>
+          <Property Name="nCategoriaChat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cNombreCate" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="chats">
+          <Key>
+            <PropertyRef Name="nIdChat" />
+          </Key>
+          <Property Name="nIdChat" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cNomclient" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="cTelCliente" Type="varchar" MaxLength="50" />
+          <Property Name="cEmailClien" Type="varchar" MaxLength="50" />
+          <Property Name="nEstado" Type="int" Nullable="false" />
+          <Property Name="dFechaIng" Type="datetime" />
+          <Property Name="dFechaAte" Type="datetime" />
+          <Property Name="dFechaFin" Type="datetime" />
+          <Property Name="direccionIp" Type="varchar" MaxLength="30" />
+          <Property Name="cCodigoUsu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cTextoChat" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="nCalifica" Type="int" Nullable="false" />
+          <Property Name="cComenExt" Type="varchar" MaxLength="250" />
+          <Property Name="cComenInt" Type="varchar" MaxLength="250" />
+          <Property Name="UCierra" Type="char" MaxLength="1" />
+          <Property Name="cZona" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="nCategoriaChat" Type="int" />
+        </EntityType>
+        <EntityType Name="respuesta">
+          <Key>
+            <PropertyRef Name="nidRespuesta" />
+          </Key>
+          <Property Name="nidRespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cRespuesta" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="cTitulo" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="nIdRol" />
+          </Key>
+          <Property Name="nIdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cNombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="nIdUsuario" />
+          </Key>
+          <Property Name="nIdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cCodigousu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cNomUsuari" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nIdRol" Type="int" Nullable="false" />
+          <Property Name="nEstadousu" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_usuarios_roles">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="nIdRol" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="nIdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="chatModeloStoreContainer">
+          <EntitySet Name="bloqueos" EntityType="Self.bloqueos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chats" EntityType="Self.chats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="respuesta" EntityType="Self.respuesta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_usuarios_roles" Association="Self.FK_usuarios_roles">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="chatModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bloqueos">
+          <Key>
+            <PropertyRef Name="direccionIp" />
+          </Key>
+          <Property Name="direccionIp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nIntentos" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="chats">
+          <Key>
+            <PropertyRef Name="nIdChat" />
+          </Key>
+          <Property Name="nIdChat" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cNomclient" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cTelCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cEmailClien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nEstado" Type="Int32" Nullable="false" />
+          <Property Name="dFechaIng" Type="DateTime" Precision="3" />
+          <Property Name="dFechaAte" Type="DateTime" Precision="3" />
+          <Property Name="dFechaFin" Type="DateTime" Precision="3" />
+          <Property Name="direccionIp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cCodigoUsu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cTextoChat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nCalifica" Type="Int32" Nullable="false" />
+          <Property Name="cComenExt" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="cComenInt" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UCierra" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cZona" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="nCategoriaChat" Type="Int32" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="nIdRol" />
+          </Key>
+          <Property Name="nIdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuarios_roles" FromRole="roles" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="nIdUsuario" />
+          </Key>
+          <Property Name="nIdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cCodigousu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cNomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nIdRol" Type="Int32" Nullable="false" />
+          <Property Name="nEstadousu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="roles" Relationship="Self.FK_usuarios_roles" FromRole="usuarios" ToRole="roles" />
+        </EntityType>
+        <Association Name="FK_usuarios_roles">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="nIdRol" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="nIdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="chatEntidad" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bloqueos" EntityType="Self.bloqueos" />
+          <EntitySet Name="chats" EntityType="Self.chats" />
+          <EntitySet Name="roles" EntityType="Self.roles" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <AssociationSet Name="FK_usuarios_roles" Association="Self.FK_usuarios_roles">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <EntitySet Name="respuesta" EntityType="chatModelo.respuesta" />
+          <EntitySet Name="categorias" EntityType="chatModelo.categorias" />
+        </EntityContainer>
+        <EntityType Name="respuesta">
+          <Key>
+            <PropertyRef Name="nidRespuesta" />
+          </Key>
+          <Property Name="nidRespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cRespuesta" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="cTitulo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="nCategoriaChat" />
+          </Key>
+          <Property Name="nCategoriaChat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cNombreCate" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="chatModeloStoreContainer" CdmEntityContainer="chatEntidad">
+          <EntitySetMapping Name="bloqueos">
+            <EntityTypeMapping TypeName="chatModelo.bloqueos">
+              <MappingFragment StoreEntitySet="bloqueos">
+                <ScalarProperty Name="direccionIp" ColumnName="direccionIp" />
+                <ScalarProperty Name="nIntentos" ColumnName="nIntentos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chats">
+            <EntityTypeMapping TypeName="chatModelo.chats">
+              <MappingFragment StoreEntitySet="chats">
+                <ScalarProperty Name="nCategoriaChat" ColumnName="nCategoriaChat" />
+                <ScalarProperty Name="cZona" ColumnName="cZona" />
+                <ScalarProperty Name="UCierra" ColumnName="UCierra" />
+                <ScalarProperty Name="cComenInt" ColumnName="cComenInt" />
+                <ScalarProperty Name="cComenExt" ColumnName="cComenExt" />
+                <ScalarProperty Name="nIdChat" ColumnName="nIdChat" />
+                <ScalarProperty Name="cNomclient" ColumnName="cNomclient" />
+                <ScalarProperty Name="cTelCliente" ColumnName="cTelCliente" />
+                <ScalarProperty Name="cEmailClien" ColumnName="cEmailClien" />
+                <ScalarProperty Name="nEstado" ColumnName="nEstado" />
+                <ScalarProperty Name="dFechaIng" ColumnName="dFechaIng" />
+                <ScalarProperty Name="dFechaAte" ColumnName="dFechaAte" />
+                <ScalarProperty Name="dFechaFin" ColumnName="dFechaFin" />
+                <ScalarProperty Name="direccionIp" ColumnName="direccionIp" />
+                <ScalarProperty Name="cCodigoUsu" ColumnName="cCodigoUsu" />
+                <ScalarProperty Name="cTextoChat" ColumnName="cTextoChat" />
+                <ScalarProperty Name="nCalifica" ColumnName="nCalifica" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="chatModelo.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="nIdRol" ColumnName="nIdRol" />
+                <ScalarProperty Name="cNombre" ColumnName="cNombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="chatModelo.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
+                <ScalarProperty Name="cCodigousu" ColumnName="cCodigousu" />
+                <ScalarProperty Name="cNomUsuari" ColumnName="cNomUsuari" />
+                <ScalarProperty Name="nIdRol" ColumnName="nIdRol" />
+                <ScalarProperty Name="nEstadousu" ColumnName="nEstadousu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="respuesta">
+            <EntityTypeMapping TypeName="chatModelo.respuesta">
+              <MappingFragment StoreEntitySet="respuesta">
+                <ScalarProperty Name="cTitulo" ColumnName="cTitulo" />
+                <ScalarProperty Name="cRespuesta" ColumnName="cRespuesta" />
+                <ScalarProperty Name="nidRespuesta" ColumnName="nidRespuesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorias">
+            <EntityTypeMapping TypeName="chatModelo.categorias">
+              <MappingFragment StoreEntitySet="categorias">
+                <ScalarProperty Name="cNombreCate" ColumnName="cNombreCate" />
+                <ScalarProperty Name="nCategoriaChat" ColumnName="nCategoriaChat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

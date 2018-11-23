@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="calculadoraCreditoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="correos">
+          <Key>
+            <PropertyRef Name="nIdCorreo" />
+          </Key>
+          <Property Name="nIdCorreo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cNombreC" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lineas">
+          <Key>
+            <PropertyRef Name="nidlineacr" />
+          </Key>
+          <Property Name="nidlineacr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cnombrelin" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ntasaInter" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="nidmoneda" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="monedas">
+          <Key>
+            <PropertyRef Name="nidmoneda" />
+          </Key>
+          <Property Name="nidmoneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cnombremo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="plazos">
+          <Key>
+            <PropertyRef Name="nIdPlazo" />
+          </Key>
+          <Property Name="nIdPlazo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nplazo" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_monedas_lineas">
+          <End Role="monedas" Type="Self.monedas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="lineas" Type="Self.lineas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monedas">
+              <PropertyRef Name="nidmoneda" />
+            </Principal>
+            <Dependent Role="lineas">
+              <PropertyRef Name="nidmoneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="calculadoraCreditoModelStoreContainer">
+          <EntitySet Name="correos" EntityType="Self.correos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lineas" EntityType="Self.lineas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="monedas" EntityType="Self.monedas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="plazos" EntityType="Self.plazos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_monedas_lineas" Association="Self.fk_monedas_lineas">
+            <End Role="monedas" EntitySet="monedas" />
+            <End Role="lineas" EntitySet="lineas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="calculadoraCreditoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="lineas">
+          <Key>
+            <PropertyRef Name="nidlineacr" />
+          </Key>
+          <Property Name="nidlineacr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cnombrelin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ntasaInter" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="nidmoneda" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="monedas" Relationship="Self.fk_monedas_lineas" FromRole="lineas" ToRole="monedas" />
+        </EntityType>
+        <EntityType Name="monedas">
+          <Key>
+            <PropertyRef Name="nidmoneda" />
+          </Key>
+          <Property Name="nidmoneda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cnombremo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="lineas" Relationship="Self.fk_monedas_lineas" FromRole="monedas" ToRole="lineas" />
+        </EntityType>
+        <Association Name="fk_monedas_lineas">
+          <End Role="monedas" Type="Self.monedas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="lineas" Type="Self.lineas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monedas">
+              <PropertyRef Name="nidmoneda" />
+            </Principal>
+            <Dependent Role="lineas">
+              <PropertyRef Name="nidmoneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="calculadoraCreditoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="lineas" EntityType="Self.lineas" />
+          <EntitySet Name="monedas" EntityType="Self.monedas" />
+          <AssociationSet Name="fk_monedas_lineas" Association="Self.fk_monedas_lineas">
+            <End Role="monedas" EntitySet="monedas" />
+            <End Role="lineas" EntitySet="lineas" />
+          </AssociationSet>
+          <EntitySet Name="correos" EntityType="calculadoraCreditoModel.correos" />
+          <EntitySet Name="plazos" EntityType="calculadoraCreditoModel.plazos" />
+        </EntityContainer>
+        <EntityType Name="correos">
+          <Key>
+            <PropertyRef Name="nIdCorreo" />
+          </Key>
+          <Property Name="nIdCorreo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cNombreC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="plazos">
+          <Key>
+            <PropertyRef Name="nIdPlazo" />
+          </Key>
+          <Property Name="nIdPlazo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nplazo" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="calculadoraCreditoModelStoreContainer" CdmEntityContainer="calculadoraCreditoEntities">
+          <EntitySetMapping Name="lineas">
+            <EntityTypeMapping TypeName="calculadoraCreditoModel.lineas">
+              <MappingFragment StoreEntitySet="lineas">
+                <ScalarProperty Name="nidlineacr" ColumnName="nidlineacr" />
+                <ScalarProperty Name="cnombrelin" ColumnName="cnombrelin" />
+                <ScalarProperty Name="ntasaInter" ColumnName="ntasaInter" />
+                <ScalarProperty Name="nidmoneda" ColumnName="nidmoneda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="monedas">
+            <EntityTypeMapping TypeName="calculadoraCreditoModel.monedas">
+              <MappingFragment StoreEntitySet="monedas">
+                <ScalarProperty Name="nidmoneda" ColumnName="nidmoneda" />
+                <ScalarProperty Name="cnombremo" ColumnName="cnombremo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="correos">
+            <EntityTypeMapping TypeName="calculadoraCreditoModel.correos">
+              <MappingFragment StoreEntitySet="correos">
+                <ScalarProperty Name="cNombreC" ColumnName="cNombreC" />
+                <ScalarProperty Name="nIdCorreo" ColumnName="nIdCorreo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plazos">
+            <EntityTypeMapping TypeName="calculadoraCreditoModel.plazos">
+              <MappingFragment StoreEntitySet="plazos">
+                <ScalarProperty Name="nplazo" ColumnName="nplazo" />
+                <ScalarProperty Name="nIdPlazo" ColumnName="nIdPlazo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

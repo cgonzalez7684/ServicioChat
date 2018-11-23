@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>calculadora</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<style type="text/css">
+		#contenido{
+			width: 600px;
+			min-height: 600px;
+			border: solid 1px;
+			margin: 0px auto;
+			padding: 0px;
+			border-radius: 10px;
+		}
+
+		#titulo{
+    		background: #1e5799; /* Old browsers */
+			width: 590px;
+			height: 100px;
+			color: white;
+			padding-left: 5px;
+			padding-right: 5px;
+			text-align: center;
+			border-top-right-radius: 10px;
+			border-top-left-radius: 10px;
+
+		}
+
+		#barra{
+			width: 600px;
+			height: 20px;
+			background: #F3A26E;
+
+
+		}
+
+
+
+		#texto-titulo{
+			font-size: 35px;
+			width: 540px;
+			margin: 0px auto;
+			padding-top: 20px;
+			font-family: "arial", arial, arial;
+		}
+		
+		input[type=text], select, input[type=number], input[type=email], textarea{
+		    width: 100%;
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		    display: inline-block;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    box-sizing: border-box;
+
+		}
+
+		input[type=checkbox] {
+		    width: 20px;
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		}
+
+
+		#form{
+			padding: 40px;
+		}
+
+	.button{
+        background: linear-gradient(to bottom, rgba(120,154,186,1) 0%, rgba(90,127,170,1) 100%);
+        font-size: 18px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-align: center;
+        color: whitesmoke;
+        cursor: pointer;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .button:hover{
+        background:  linear-gradient(to bottom, rgba(78,116,151,1) 0%, rgba(66,95,128,1) 100%);
+    }
+
+    .labelP{
+    	font-family:'arial', arial, arial; 
+    	color: gray;
+    }
+
+    .labelE{
+    	font-family:'arial', arial, arial; 
+    	color: red;
+    	font-size: 18px;
+    	margin: 10px;
+    }
+
+    .labelC{
+    	font-family:'arial', arial, arial; 
+    	color: blue;
+    	font-size: 18px;
+    	margin: 10px;
+    }
+
+
+	/* Modal Content */
+	 .modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    padding-top: 100px; /* Location of the box */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	    background-color: #fefefe;
+	    margin: auto;
+	    padding: 20px;
+	    border: 1px solid #888;
+	    width: 128px;
+	     opacity: 0.0;
+  		filter: alpha(opacity=60); /* For IE8 and earlier */
+	}
+
+	/* The Close Button */
+	.close {
+	    color: #aaaaaa;
+	    float: right;
+	    font-size: 28px;
+	    font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	    color: #000;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+
+	#imgModal{
+		margin: 0px auto;
+		overflow: hidden;
+		padding-left: 45%;
+		padding-top: 15%;
+
+	}
+
+
+
+					
+	</style>
+
+</head>
+<body>
+	<div id="myModal" class="modal">
+		<img src="images/loading.gif" id="imgModal">
+	</div>
+
+	<div id='contenido'>
+		<div id='titulo'>
+			<p id='texto-titulo'>Calcule la Cuota de su Crédito</p>
+			
+		</div>
+		<div id='barra'>
+		</div>
+		<div id='form'>
+			
+			<div id='calc'> 
+				<label class="labelP" for="monto">Monto a solicitar:</label>
+			    <input class="labelP" type="text" id="monto" name="monto"  value="0.00">
+
+			    <label class="labelP" for="moneda">Moneda:</label>
+			    <select id="selMoneda" class="labelP">
+	               
+	             </select> 
+
+	            <label class="labelP" for="selLinea">Línea de Crédito:</label>
+			    <select class="labelP" id="selLinea">
+	             
+	             </select>  
+
+	            <label class="labelP" for="tasa">Tasa  de interés anual %:</label>
+			    <input type="number" class="labelP" id="tasa" name="tasa" readonly="true"  value="0.00">
+
+			    <label class="labelP" for="plazo">Plazo en meses:</label>
+			    <select class="labelP" id="selPlazo">
+	             
+	            </select>
+
+			    <label class="labelP" for="cuota">Cuota mensual:</label>
+			    <input type="text" class="labelP" id="cuota" name="cuota" readonly="true"  value="0.00">
+
+			    <div id="MsjError1"></div>
+			  
+			   <div class="button" id='calc_value' style="font-family:'arial', arial, arial;">Calcular Cuota aproximada</div>
+
+			   <label class="labelP" for="info">Enviar información:</label> <br>
+			    <input type="checkbox" class="labelP" value="" id="info">
+		   </div>
+
+		   <div id='datos' style="display: none"> 
+				<label class="labelP" for="nombre">Nombre completo:</label>
+			    <input class="labelP" type="text" id="nombre" name="nombre" placeholder="Nombre completo"  value="">
+
+	            <label class="labelP" for="email">Email:</label>
+			    <input type="email" class="labelP" id="email" name="email" placeholder="ejemplo@dominio.com" value="">
+
+			    <label class="labelP" for="telefono">Teléfono:</label>
+			    <input type="text" class="labelP" id="telefono" name="telefono" placeholder="Número telefónico"  value="">
+
+			    <label class="labelP" for="mensaje">Mensaje:</label>
+			     <textarea class="labelP" rows="4" name="mensaje" id="mensaje"></textarea>
+
+			     <br>
+
+			     
+			    <input type="checkbox" class="labelP" value="" id="envCorreo">
+			    <label class="labelP" for="envCorreo" style="font-size: 14px">Deseo que esta estimación me llegue a mi correo</label> <br>
+
+			    
+			    <input type="checkbox" class="labelP" value="" id="autoriza">
+			    <label class="labelP" for="autoriza" style="font-size: 14px">Autorizo a Coopecaja para el envio de información de este y otros productos</label> <br>
+			    <div id="MsjError2"></div>
+			  
+			   <div class="button" id='enviar' style="font-family:'arial', arial, arial;">Solicitar Información</div>
+		   </div>
+
+		   <div class="labelP" style="font-size: 10px; text-align: justify;"> *Los precios se muestran únicamente como una orientación para el cliente en su decisión de acceder a determinados productos financieros, y no debe entenderse que esta información muestra el precio final del producto o servicio para todos los clientes. El precio final para cada cliente está determinado por múltiples condiciones sujetas a la valoración de la entidad, propias del entorno de los negocios, la relación comercial, el perfil del cliente y las características de las operaciones o servicios demandados.</div>
+
+    	</div>
+
+    	<div id='barra' style="border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;">
+		</div>
+	</div>
+
+	<!--  <script src="../Scripts/jquery.js"></script> -->
+	 <script src="../Scripts/jquery.number.js"></script>
+     <script src="../Scripts/calculadora.js"></script>
+
+
+
+
+
+
+</body>
+</html>

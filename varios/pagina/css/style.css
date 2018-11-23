@@ -1,0 +1,361 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* ---------- GENERAL ---------- */
+
+/*body {
+
+	color: #9a9a9a;
+	font: 100%/1.5em "Droid Sans", sans-serif;
+
+}*/
+
+#live-chat{
+    color: #9a9a9a;
+	font: 100%/1.5em "Droid Sans", sans-serif;
+}
+
+#live-chat a { text-decoration: none; }
+
+#live-chat fieldset {
+	border: 0;
+	/*margin: 0;
+	padding: 0;*/
+}
+
+h4, h5 {
+	line-height: 1.5em;
+	margin: 0;
+}
+
+hr {
+	background: #e9e9e9;
+    border: 0;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 1px;
+    margin: 0;
+    min-height: 1px;
+}
+
+/*img {
+    border: 0;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}*/
+
+input {
+	border: 0;
+	color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: normal;
+    margin: 0;
+}
+
+p { margin: 0;}
+
+#parrafo{
+    margin: 0; line-height:15px;
+    -webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+}
+
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after { clear: both; }
+
+/* ---------- LIVE-CHAT ---------- */
+
+#live-chat {
+	bottom: 0;
+	font-size: 12px;
+	right: 24px;
+	position: fixed;
+	width: 300px;
+}
+
+#live-chat header {
+	/*background: #3848fe;*/
+     background: #0e2283; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#5562fa,#0e2283); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#5562fa,#0e2283); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#5562fa,#0e2283); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#5562fa,#0e2283); /* Standard syntax */
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 16px 24px;
+    height:5px;
+}
+
+#live-chat h4:before {
+	/*background: #1a8a34;*/
+    /*background-image:url("/images/tec.png");*/
+	border-radius: 50%;
+	content: "";
+	display: inline-block;
+	height: 8px;
+	margin: 0 8px 0 0;
+	width: 8px;
+}
+
+#live-chat h4 {
+	font-size: 12px;
+}
+
+#live-chat h5 {
+	font-size: 12px;
+}
+
+#live-chat form {
+	padding: 24px;
+}
+
+#live-chat input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 8px;
+	outline: none;
+	width: 234px;
+   
+}
+
+#live-chat input[type=button]
+{
+  font-size:12px;
+  padding:10px 25px;
+  border-radius:5px;
+  border:1px solid #f0f0f1;
+  background-color:#0e2283;
+  color:#fff;
+  outline:none;
+  border:1px solid transparent;
+  margin-top:6px;
+  /*float:left;*/
+  cursor:pointer;
+}
+
+
+
+#live-chat input[type=button]:hover{
+    background-color:#ff0000;
+}
+
+#live-chat textarea {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 8px;
+	outline: none;
+	width: 234px;
+    height:50px;
+}
+
+.chat-message-counter {
+	background: #e62727;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	font-size: 12px;
+	font-weight: bold;
+	height: 28px;
+	left: 0;
+	line-height: 28px;
+	margin: -15px 0 0 -15px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 28px;
+}
+
+.chat-close {
+	background:#fff;
+	border-radius: 50%;
+	color:gray;
+	display: block;
+	float: right;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+	margin: 2px 0 0 0;
+	text-align: center;
+	width: 16px;
+}
+
+.chat {
+	background: #fff;
+    border:1px;
+    border-style: groove;
+}
+
+.chat-history {
+	height: 252px;
+	padding: 8px 24px;
+	overflow-y: scroll;
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -webkit-pre-wrap; /*Chrome & Safari */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    white-space: pre-wrap; /* css-3 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    word-break: break-all;
+    white-space: normal;
+}
+
+
+
+.chat-message {
+	margin: 16px 0;
+}
+
+/*.chat-message img {*/
+.chatImg {
+    border: 0;
+    display: block;
+    height: auto;
+    max-width: 100%;
+	border-radius: 50%;
+	float: left;
+}
+
+.chat-message-content {
+	margin-left: 40px;
+    
+}
+
+.chat-time {
+	float: right;
+	font-size: 10px;
+    height:10px;
+}
+
+.chat-feedback {
+	font-style: italic;	
+	margin: 0 0 0 80px;
+}
+
+
+
+#imgHead,#titulo{
+    float:left;
+}
+
+#login{
+    height: 290px; 
+    display: none;
+}
+
+.datosF{
+    padding: 24px;
+}
+
+#respuesta{
+    color:red;
+    line-height:10px;
+    margin-top:1%;
+}
+
+#datos{
+    margin-left:17%;
+    margin-top:10%;
+}
+
+#chat,#datosS,#file{
+    display: none;
+}
+
+#datosC{
+    display:inline;
+}
+
+#enviar,#salir{
+    margin-left:10%;
+}
+
+#califica{
+    padding-bottom:30px;
+    padding-top:20px; 
+    margin-left:25%
+}
+
+#enviar2,#cancelar{
+    margin-left:10%;
+}
+
+
+
+.doc_adjunto {
+            
+            width: 175px;
+            height: 100px;
+            margin: 0px auto;
+            text-align: center;
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            white-space: -webkit-pre-wrap; /*Chrome & Safari */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            white-space: pre-wrap; /* css-3 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            word-break: break-all;
+            white-space: normal;
+        }
+
+
+
+.link{
+     width: 175px;
+     overflow: hidden;
+}
+
+.imgAdj{
+    border-radius:0px;
+    display:inline;
+}
+
+
+
+
+/*propiedaes para las estrellas de calificación*/
+.starRating:not(old){
+  display        : inline-block;
+  width          : 7.5em;
+  height         : 1.5em;
+  overflow       : hidden;
+  vertical-align : bottom;
+  cursor:pointer;
+}
+
+.starRating:not(old) > input{
+  margin-right : -100%;
+  opacity      : 0;
+}
+
+.starRating:not(old) > label{
+  display         : block;
+  float           : right;
+  position        : relative;
+  background      : url("../images/star-off.svg");
+  background-size : contain;
+}
+
+.starRating:not(old) > label:before{
+  content         : '';
+  display         : block;
+  width           : 1.5em;
+  height          : 1.5em;
+  background      : url('../images/star-on.svg');
+  background-size : contain;
+  opacity         : 0;
+  transition      : opacity 0.2s linear;
+}
+
+.starRating:not(old) > label:hover:before,
+.starRating:not(old) > label:hover ~ label:before,
+.starRating:not(:hover) > :checked ~ label:before{
+  opacity : 1;
+}

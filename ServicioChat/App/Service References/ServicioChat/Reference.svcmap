@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cb0aa3e9-0775-4a45-9fdd-227ced6df36a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.7.4/wcfChat/chatCoopecaja.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="chatCoopecaja1.disco" MetadataType="Disco" ID="91366598-e00d-4789-9591-09ff64c589ab" SourceId="1" SourceUrl="http://172.16.7.4/wcfChat/chatCoopecaja.svc?disco" />
+    <MetadataFile FileName="WebChat1.wsdl" MetadataType="Wsdl" ID="3423b81a-7bef-4d42-8826-4649e6311de3" SourceId="1" SourceUrl="http://172.16.7.4/wcfChat/chatCoopecaja.svc?wsdl" />
+    <MetadataFile FileName="chatCoopecaja4.xsd" MetadataType="Schema" ID="e695b4e0-f3bf-480f-8fb5-a50a07e1f712" SourceId="1" SourceUrl="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd3" />
+    <MetadataFile FileName="chatCoopecaja5.xsd" MetadataType="Schema" ID="e53369d9-9d81-40b4-af27-a9fc5ba4544c" SourceId="1" SourceUrl="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd1" />
+    <MetadataFile FileName="chatCoopecaja6.xsd" MetadataType="Schema" ID="c72a7572-360f-4c26-9fcb-29e51afe3afa" SourceId="1" SourceUrl="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd0" />
+    <MetadataFile FileName="chatCoopecaja7.xsd" MetadataType="Schema" ID="794697e6-36c1-43a8-a967-3920e4161657" SourceId="1" SourceUrl="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

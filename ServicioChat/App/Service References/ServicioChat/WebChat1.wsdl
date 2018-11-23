@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WebChat" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServicioChat" />
+      <xsd:import schemaLocation="http://172.16.7.4/wcfChat/chatCoopecaja.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWebChat_Obtenerservicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtenerservicio" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_Obtenerservicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerservicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_pruebaarchivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:pruebaarchivo" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_pruebaarchivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:pruebaarchivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistrarUsuarioWeb_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioWeb" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistrarUsuarioWeb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistrarUsuarioInterno_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioInterno" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistrarUsuarioInterno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioInternoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CrearChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CrearChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CrearChat2_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearChat2" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CrearChat2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearChat2Response" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CrearMensaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearMensaje" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CrearMensaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearMensajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RecibirMensajes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecibirMensajes" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RecibirMensajes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecibirMensajesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistraSalidaUsuarioWeb_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistraSalidaUsuarioWeb" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistraSalidaUsuarioWeb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistraSalidaUsuarioWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CerrarChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_CerrarChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistraSalidaUsuarioInterno_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistraSalidaUsuarioInterno" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistraSalidaUsuarioInterno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistraSalidaUsuarioInternoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_HabilitarUsuarioInterno_InputMessage">
+    <wsdl:part name="parameters" element="tns:HabilitarUsuarioInterno" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_HabilitarUsuarioInterno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HabilitarUsuarioInternoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerIdChatAtender_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIdChatAtender" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerIdChatAtender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIdChatAtenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerListaClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListaClientes" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerListaClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListaClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_verificar_chat_InputMessage">
+    <wsdl:part name="parameters" element="tns:verificar_chat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_verificar_chat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:verificar_chatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerNombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombre" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerNombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_verificarteclado_InputMessage">
+    <wsdl:part name="parameters" element="tns:verificarteclado" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_verificarteclado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:verificartecladoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_AsignarChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_AsignarChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_UploadFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFile" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_UploadFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtieneRuta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneRuta" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtieneRuta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneRutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtieneRutaF_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneRutaF" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtieneRutaF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneRutaFResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerListaEmpleados_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListaEmpleados" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerListaEmpleados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListaEmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerListaChats_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListaChats" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerListaChats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListaChatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_cambiarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:cambiarEstado" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_cambiarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:cambiarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerInfoCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoCliente" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerInfoCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerEstadoChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerEstadoChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerEstadoChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerEstadoChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerMensajaCierreChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMensajaCierreChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerMensajaCierreChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMensajaCierreChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerUsuarioCierraChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioCierraChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerUsuarioCierraChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioCierraChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerCalificacionChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCalificacionChat" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_ObtenerCalificacionChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCalificacionChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistraComentarioSalidaAgente_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistraComentarioSalidaAgente" />
+  </wsdl:message>
+  <wsdl:message name="IWebChat_RegistraComentarioSalidaAgente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistraComentarioSalidaAgenteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWebChat">
+    <wsdl:operation name="Obtenerservicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/Obtenerservicio" message="tns:IWebChat_Obtenerservicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerservicioResponse" message="tns:IWebChat_Obtenerservicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="pruebaarchivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/pruebaarchivo" message="tns:IWebChat_pruebaarchivo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/pruebaarchivoResponse" message="tns:IWebChat_pruebaarchivo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioWeb">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/RegistrarUsuarioWeb" message="tns:IWebChat_RegistrarUsuarioWeb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/RegistrarUsuarioWebResponse" message="tns:IWebChat_RegistrarUsuarioWeb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioInterno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/RegistrarUsuarioInterno" message="tns:IWebChat_RegistrarUsuarioInterno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/RegistrarUsuarioInternoResponse" message="tns:IWebChat_RegistrarUsuarioInterno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/CrearChat" message="tns:IWebChat_CrearChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/CrearChatResponse" message="tns:IWebChat_CrearChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearChat2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/CrearChat2" message="tns:IWebChat_CrearChat2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/CrearChat2Response" message="tns:IWebChat_CrearChat2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearMensaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/CrearMensaje" message="tns:IWebChat_CrearMensaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/CrearMensajeResponse" message="tns:IWebChat_CrearMensaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirMensajes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/RecibirMensajes" message="tns:IWebChat_RecibirMensajes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/RecibirMensajesResponse" message="tns:IWebChat_RecibirMensajes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerChat" message="tns:IWebChat_ObtenerChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerChatResponse" message="tns:IWebChat_ObtenerChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistraSalidaUsuarioWeb">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/RegistraSalidaUsuarioWeb" message="tns:IWebChat_RegistraSalidaUsuarioWeb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/RegistraSalidaUsuarioWebResponse" message="tns:IWebChat_RegistraSalidaUsuarioWeb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/CerrarChat" message="tns:IWebChat_CerrarChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/CerrarChatResponse" message="tns:IWebChat_CerrarChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistraSalidaUsuarioInterno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/RegistraSalidaUsuarioInterno" message="tns:IWebChat_RegistraSalidaUsuarioInterno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/RegistraSalidaUsuarioInternoResponse" message="tns:IWebChat_RegistraSalidaUsuarioInterno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarUsuarioInterno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/HabilitarUsuarioInterno" message="tns:IWebChat_HabilitarUsuarioInterno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/HabilitarUsuarioInternoResponse" message="tns:IWebChat_HabilitarUsuarioInterno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdChatAtender">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerIdChatAtender" message="tns:IWebChat_ObtenerIdChatAtender_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerIdChatAtenderResponse" message="tns:IWebChat_ObtenerIdChatAtender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerListaClientes" message="tns:IWebChat_ObtenerListaClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerListaClientesResponse" message="tns:IWebChat_ObtenerListaClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="verificar_chat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/verificar_chat" message="tns:IWebChat_verificar_chat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/verificar_chatResponse" message="tns:IWebChat_verificar_chat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerNombre" message="tns:IWebChat_ObtenerNombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerNombreResponse" message="tns:IWebChat_ObtenerNombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="verificarteclado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/verificarteclado" message="tns:IWebChat_verificarteclado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/verificartecladoResponse" message="tns:IWebChat_verificarteclado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignarChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/AsignarChat" message="tns:IWebChat_AsignarChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/AsignarChatResponse" message="tns:IWebChat_AsignarChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/UploadFile" message="tns:IWebChat_UploadFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/UploadFileResponse" message="tns:IWebChat_UploadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneRuta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtieneRuta" message="tns:IWebChat_ObtieneRuta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtieneRutaResponse" message="tns:IWebChat_ObtieneRuta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneRutaF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtieneRutaF" message="tns:IWebChat_ObtieneRutaF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtieneRutaFResponse" message="tns:IWebChat_ObtieneRutaF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaEmpleados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerListaEmpleados" message="tns:IWebChat_ObtenerListaEmpleados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerListaEmpleadosResponse" message="tns:IWebChat_ObtenerListaEmpleados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaChats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerListaChats" message="tns:IWebChat_ObtenerListaChats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerListaChatsResponse" message="tns:IWebChat_ObtenerListaChats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="cambiarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/cambiarEstado" message="tns:IWebChat_cambiarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/cambiarEstadoResponse" message="tns:IWebChat_cambiarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerInfoCliente" message="tns:IWebChat_ObtenerInfoCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerInfoClienteResponse" message="tns:IWebChat_ObtenerInfoCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEstadoChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerEstadoChat" message="tns:IWebChat_ObtenerEstadoChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerEstadoChatResponse" message="tns:IWebChat_ObtenerEstadoChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMensajaCierreChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerMensajaCierreChat" message="tns:IWebChat_ObtenerMensajaCierreChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerMensajaCierreChatResponse" message="tns:IWebChat_ObtenerMensajaCierreChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioCierraChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerUsuarioCierraChat" message="tns:IWebChat_ObtenerUsuarioCierraChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerUsuarioCierraChatResponse" message="tns:IWebChat_ObtenerUsuarioCierraChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCalificacionChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/ObtenerCalificacionChat" message="tns:IWebChat_ObtenerCalificacionChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/ObtenerCalificacionChatResponse" message="tns:IWebChat_ObtenerCalificacionChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistraComentarioSalidaAgente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebChat/RegistraComentarioSalidaAgente" message="tns:IWebChat_RegistraComentarioSalidaAgente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebChat/RegistraComentarioSalidaAgenteResponse" message="tns:IWebChat_RegistraComentarioSalidaAgente_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWebChat" type="tns:IWebChat">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Obtenerservicio">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/Obtenerservicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pruebaarchivo">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/pruebaarchivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioWeb">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/RegistrarUsuarioWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioInterno">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/RegistrarUsuarioInterno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/CrearChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearChat2">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/CrearChat2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearMensaje">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/CrearMensaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirMensajes">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/RecibirMensajes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistraSalidaUsuarioWeb">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/RegistraSalidaUsuarioWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/CerrarChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistraSalidaUsuarioInterno">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/RegistraSalidaUsuarioInterno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarUsuarioInterno">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/HabilitarUsuarioInterno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdChatAtender">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerIdChatAtender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaClientes">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerListaClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificar_chat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/verificar_chat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombre">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificarteclado">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/verificarteclado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignarChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/AsignarChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/UploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneRuta">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtieneRuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneRutaF">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtieneRutaF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaEmpleados">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerListaEmpleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaChats">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerListaChats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cambiarEstado">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/cambiarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoCliente">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerInfoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEstadoChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerEstadoChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMensajaCierreChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerMensajaCierreChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioCierraChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerUsuarioCierraChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCalificacionChat">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/ObtenerCalificacionChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistraComentarioSalidaAgente">
+      <soap:operation soapAction="http://tempuri.org/IWebChat/RegistraComentarioSalidaAgente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebChat">
+    <wsdl:port name="BasicHttpBinding_IWebChat" binding="tns:BasicHttpBinding_IWebChat">
+      <soap:address location="http://172.16.7.4/wcfChat/chatCoopecaja.svc/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

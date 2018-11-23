@@ -1,0 +1,14 @@
+Agregar estos scripts en todas las paginas en las que se desea que se vea el chat
+
+
+<head>
+	<link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+	<script src="../Scripts/interfaz.js"></script>
+	<script src="../Scripts/chat.js"></script>
+</body>

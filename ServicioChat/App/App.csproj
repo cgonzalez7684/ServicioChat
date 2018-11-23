@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75C95CF8-B214-4B8C-B3C8-FDA5456C87F3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App</RootNamespace>
+    <AssemblyName>App</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.2.0.4, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="chat.cs" />
+    <Compile Include="chatDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chatDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dashboardGraficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dashboardGraficos.Designer.cs">
+      <DependentUpon>dashboardGraficos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCerrarChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCerrarChat.Designer.cs">
+      <DependentUpon>frmCerrarChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChat.Designer.cs">
+      <DependentUpon>frmChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detalle.Designer.cs">
+      <DependentUpon>detalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detalle2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detalle2.Designer.cs">
+      <DependentUpon>detalle2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsulta.Designer.cs">
+      <DependentUpon>frmConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDash.Designer.cs">
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficoAtendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficoAtendidos.designer.cs">
+      <DependentUpon>frmGraficoAtendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficoBarrasSatisfaccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficoBarrasSatisfaccion.designer.cs">
+      <DependentUpon>frmGraficoBarrasSatisfaccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficoSatisfaccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficoSatisfaccion.designer.cs">
+      <DependentUpon>frmGraficoSatisfaccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficoSatisfaccionEmpl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficoSatisfaccionEmpl.designer.cs">
+      <DependentUpon>frmGraficoSatisfaccionEmpl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainReportes.designer.cs">
+      <DependentUpon>frmMainReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrcBuscaChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrcBuscaChat.Designer.cs">
+      <DependentUpon>frmPrcBuscaChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persona.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServicioChat\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="dashboardGraficos.resx">
+      <DependentUpon>dashboardGraficos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCerrarChat.resx">
+      <DependentUpon>frmCerrarChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChat.resx">
+      <DependentUpon>frmChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detalle.resx">
+      <DependentUpon>detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detalle2.resx">
+      <DependentUpon>detalle2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsulta.resx">
+      <DependentUpon>frmConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDash.resx">
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficoAtendidos.resx">
+      <DependentUpon>frmGraficoAtendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficoBarrasSatisfaccion.resx">
+      <DependentUpon>frmGraficoBarrasSatisfaccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficoSatisfaccion.resx">
+      <DependentUpon>frmGraficoSatisfaccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficoSatisfaccionEmpl.resx">
+      <DependentUpon>frmGraficoSatisfaccionEmpl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainReportes.resx">
+      <DependentUpon>frmMainReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrcBuscaChat.resx">
+      <DependentUpon>frmPrcBuscaChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reportes\graficoBarrasSatisfaccion.rdlc" />
+    <EmbeddedResource Include="Reportes\graficoChatAtendidos.rdlc" />
+    <EmbeddedResource Include="Reportes\graficoSatisfaccion.rdlc" />
+    <EmbeddedResource Include="Reportes\graficoSatisfaccionPorUsuario.rdlc" />
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="chatDataSet.xsc">
+      <DependentUpon>chatDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="chatDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>chatDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="chatDataSet.xss">
+      <DependentUpon>chatDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\ServicioChat\App.ServicioChat.Chat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioChat\App.ServicioChat.Empleado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioChat\App.ServicioChat.ListaCliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioChat\App.ServicioChat.ListaMensaje.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioChat\chatCoopecaja4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioChat\chatCoopecaja5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioChat\chatCoopecaja6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioChat\chatCoopecaja7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioChat\WebChat1.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Configuration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConstruirTabla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Table64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plani64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Planificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Table32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Module32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSql32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSql.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Module.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tabla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\SatisfaccionServicio_GraficoMensual3.png" />
+    <None Include="Resources\SatisfacionPorAgente_Grafico.png" />
+    <None Include="Resources\SatifacionServicio_GraficoMensual.png" />
+    <None Include="Resources\SatifacionServicio_Grafico.png" />
+    <None Include="Service References\ServicioChat\chatCoopecaja1.disco" />
+    <None Include="Resources\ImageAbout.jpg" />
+    <None Include="Resources\Me48.png" />
+    <None Include="Resources\Me.png" />
+    <None Include="Resources\IconoProducto.ico" />
+    <None Include="Resources\preloader.gif" />
+    <None Include="Resources\Mensaje.png" />
+    <None Include="Resources\Folder16px.png" />
+    <None Include="Resources\FlechaIzquierdaN.png" />
+    <None Include="Resources\FlechaDerechaN.png" />
+    <None Include="Resources\FlechaIzquierda.png" />
+    <None Include="Resources\FlechaDerecha.png" />
+    <None Include="Service References\ServicioChat\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServicioChat\configuration.svcinfo" />
+    <None Include="Service References\ServicioChat\configuration91.svcinfo" />
+    <None Include="Resources\guardar.png" />
+    <None Include="Resources\usuario.png" />
+    <None Include="Resources\load_r.gif" />
+    <None Include="Resources\load.gif" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\buscar.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\Apagar.png" />
+    <None Include="Resources\ApagarRojo.png" />
+    <None Include="Resources\ChatBtn.png" />
+    <None Include="Resources\ChatBtnOpri.png" />
+    <None Include="Resources\BtnChatNoDisponible.png" />
+    <None Include="Resources\BtnChatNoDisponibleOpri.png" />
+    <None Include="Resources\ChatMenu.png" />
+    <None Include="Resources\ChatMenu2.png" />
+    <None Include="Resources\BackGroud.jpg" />
+    <None Include="Resources\1460090459_distributor-report.png" />
+    <None Include="Resources\backgroud4.jpg" />
+    <None Include="Resources\ChatsAtendidos_Grafico.png" />
+    <None Include="Resources\ChatsAtendidos2_Grafico.png" />
+    <Content Include="Resources\dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChatEntity\ChatEntity.csproj">
+      <Project>{c78a1476-bb9c-49b0-9e04-33133713972c}</Project>
+      <Name>ChatEntity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicioChat\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
